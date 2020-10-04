@@ -19,7 +19,7 @@ import java.awt.*;
 
 public class Memorama extends Stage implements EventHandler {
 
-    private String[] arImagenes = {"Avestruz.jpg","Buho.jpg","Cebra.jpg","Gorila.jpg","Leon.jpg","loro.jpg","Mariposa.jpg","Serpiente.jpg","Tigre.jpg","Tucan.jpg"};
+    private String[] arImagenes = {"Avestruz.jpg","Buho.jpg","Cebra.jpg","Gorila.jpg","Leon.jpg","loro.jpg","Mariposa.jpg","PavoReal.jpg","Serpiente.jpg","Tigre.jpg","Tucan.jpg"};
 
     private Label lblTarjetas;
     private TextField txtNoTarjetas;
