@@ -45,7 +45,7 @@ public class Memorama extends Stage implements EventHandler {
         lblTarjetas = new Label("Numero de Pares:");
         txtNoTarjetas = new TextField();
         btnAceptar = new Button("Voltear y Revolver");
-        btnAceptar2 = new Button("Nuevo Mensaje");
+        //btnAceptar2 = new Button("Nuevo Mensaje");
         btnAceptar.addEventHandler(MouseEvent.MOUSE_CLICKED,this);
         //btnAceptar2.addEventHandler(MouseEvent.MOUSE_CLICKED,new EventosMemorama(2));
         /*btnAceptar.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -56,7 +56,7 @@ public class Memorama extends Stage implements EventHandler {
         });*/
 
         hbox = new HBox();
-        hbox.getChildren().addAll(lblTarjetas, txtNoTarjetas, btnAceptar,btnAceptar2);
+        hbox.getChildren().addAll(lblTarjetas, txtNoTarjetas, btnAceptar);
         hbox.setSpacing(10);
 
         gdpMesa = new GridPane();
