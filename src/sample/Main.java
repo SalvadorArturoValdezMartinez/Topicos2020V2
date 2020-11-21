@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import sample.components.Hilo;
 import sample.models.Conexion;
 import sample.ui.Memorama;
 import sample.ui.Dashboard;
@@ -38,6 +39,11 @@ public class Main extends Application implements EventHandler {
         primaryStage.show();
 
         Conexion.crearConexion();
+        new Hilo("Sonic").start();
+        new Hilo("Flash").start();
+        new Hilo("Super Man").start();
+        new Hilo("Meteoro").start();
+        new Hilo("QuickSilver").start();
     }
 
     private void CrearUI() {
@@ -109,3 +115,7 @@ public class Main extends Application implements EventHandler {
         System.out.println("Se esta mostrando la pantalla");
     }
 }
+//CLASES NUEVAS AGREGADAS
+//Checar las clases FrmTipoPlatillo
+//Checar TipoPlatilloCRUD
+//Checar ButonCustome2

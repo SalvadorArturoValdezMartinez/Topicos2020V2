@@ -31,34 +31,47 @@ public class PlatillosDAO {
             e.printStackTrace();
         }
     }
-    public void updPlatillo(){}
-    public void delPlatillo(){
+
+    public void updPlatillo(){
         try{
-            String query = "DELETE FROM tbl_platillos WHERE id_platillo = "+id_platillo;
+            String query = "UPDATE tbl_platillos SET nombre_platillo = '"+nombre_platillo+"', " +
+                    "precio = "+precio+", id_tipo = "+id_tipo+" WHERE id_platillo ="+id_platillo;
             Statement stmt = Conexion.con.createStatement();
             stmt.executeUpdate(query);
-        }catch(Exception e){
-           e.printStackTrace();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
+
+
+    public void delPlatillo(){
+        try{
+            String query = "DELETE FROM tbl_platillos WHERE id_platillo ="+id_platillo;
+            Statement stmt = Conexion.con.createStatement();
+            stmt.executeUpdate(query);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
     public ObservableList<PlatillosDAO> getAllPlatillo(){
 
         ObservableList<PlatillosDAO> listaP = FXCollections.observableArrayList();
-        try {
+        try{
             PlatillosDAO objP;
             String query = "select * from tbl_platillos order by nombre_platillo";
             Statement stmt = Conexion.con.createStatement();
-            ResultSet res= stmt.executeQuery(query);
+            ResultSet res = stmt.executeQuery(query);
             while(res.next()){
-                  objP = new PlatillosDAO();
-                  objP.setId_platillo(res.getInt("id_platillo"));
-                  objP.setNombre_platillo(res.getString("nombre_platillo"));
-                  objP.setPrecio(res.getFloat("precio"));
-                  objP.setId_tipo(res.getInt("id_tipo"));
-                  listaP.add(objP);
+                objP = new PlatillosDAO();
+                objP.setId_platillo(res.getInt("id_platillo"));
+                objP.setNombre_platillo(res.getString("nombre_platillo"));
+                objP.setPrecio(res.getFloat("precio"));
+                objP.setId_tipo(res.getInt("id_tipo"));
+                listaP.add(objP);
             }
-        }catch (Exception e){
+        }catch(Exception e){
             e.printStackTrace();
         }
         return listaP;

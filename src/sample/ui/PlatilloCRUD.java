@@ -1,7 +1,10 @@
 package sample.ui;
 
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -11,18 +14,19 @@ import sample.models.PlatillosDAO;
 
 public class PlatilloCRUD extends Stage {
 
-    private VBox vbox;
+    private VBox vBox;
     private TableView<PlatillosDAO> tbvPlatillos;
     private Button btnNuevo;
     private Scene escena;
     private PlatillosDAO objPDAO;
+    private int opc;
 
     public PlatilloCRUD(){
 
         objPDAO = new PlatillosDAO();
         CrearUI();
 
-        this.setTitle("Administracion de Platillos");
+        this.setTitle("Administración de Platillos");
         this.setScene(escena);
         this.show();
     }
@@ -31,10 +35,12 @@ public class PlatilloCRUD extends Stage {
         tbvPlatillos = new TableView<>();
         CrearTabla();
         btnNuevo = new Button("Nuevo Platillo");
-        btnNuevo.setOnAction(event ->  { new FrmPlatillos(); });
-        vbox = new VBox();
-        vbox.getChildren().addAll(tbvPlatillos,btnNuevo);
-        escena = new Scene(vbox,300,250);
+        btnNuevo.setOnAction(event -> {
+            opc=0; //Boton Insertar
+            new FrmPlatillos(tbvPlatillos,null, opc); });
+        vBox = new VBox();
+        vBox.getChildren().addAll(tbvPlatillos,btnNuevo);
+        escena = new Scene(vBox,300,250);
     }
 
     private void CrearTabla() {
@@ -57,7 +63,7 @@ public class PlatilloCRUD extends Stage {
                 }
         );
 
-        TableColumn<PlatillosDAO, String> tbcBorrar = new TableColumn<>("Borrar");
+        TableColumn<PlatillosDAO,String> tbcBorrar = new TableColumn<>("Borrar");
         tbcBorrar.setCellFactory(
                 new Callback<TableColumn<PlatillosDAO, String>, TableCell<PlatillosDAO, String>>() {
                     @Override
@@ -67,7 +73,8 @@ public class PlatilloCRUD extends Stage {
                 }
         );
 
-        tbvPlatillos.getColumns().addAll(tbcIdPlatillo, tbcNomPlatillo, tbcPrecioPlatillo, tbcEditar, tbcBorrar);
+
+        tbvPlatillos.getColumns().addAll(tbcIdPlatillo,tbcNomPlatillo,tbcPrecioPlatillo,tbcEditar,tbcBorrar);
         tbvPlatillos.setItems(objPDAO.getAllPlatillo());
     }
 }

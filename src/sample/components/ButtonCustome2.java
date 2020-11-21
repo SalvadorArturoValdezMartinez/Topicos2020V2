@@ -5,21 +5,23 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableCell;
 import sample.models.PlatillosDAO;
+import sample.models.TipoPlatilloDAO;
 import sample.ui.FrmPlatillos;
+import sample.ui.FrmTipoPlatillos;
 
 import java.util.Optional;
 
-public class ButtonCustome extends TableCell<PlatillosDAO,String> {
+public class ButtonCustome2 extends TableCell<TipoPlatilloDAO,String> {
 
     private Button btnCelda;
-    private PlatillosDAO objPlatillo;
+    private TipoPlatilloDAO objTipoPlatillo;
 
-    public ButtonCustome(int opc){
+    public ButtonCustome2(int opc){
         if( opc == 1 ) {
             btnCelda = new Button("Editar");
             btnCelda.setOnAction( event -> {
-                objPlatillo = ButtonCustome.this.getTableView().getItems().get(ButtonCustome.this.getIndex());
-                new FrmPlatillos(ButtonCustome.this.getTableView(),objPlatillo,opc);
+                objTipoPlatillo = ButtonCustome2.this.getTableView().getItems().get(ButtonCustome2.this.getIndex());
+                new FrmTipoPlatillos(ButtonCustome2.this.getTableView(),objTipoPlatillo,opc);
             });
         }
         else{
@@ -33,12 +35,12 @@ public class ButtonCustome extends TableCell<PlatillosDAO,String> {
                 Optional<ButtonType> result = alerta.showAndWait();
                 if( result.get() == ButtonType.OK ){
                     // Obtenemos el objeto de tipo Platillos de acuerdo al renglón seleccionado
-                    objPlatillo = ButtonCustome.this.getTableView().getItems().get(ButtonCustome.this.getIndex());
-                    objPlatillo.delPlatillo();
+                    objTipoPlatillo = ButtonCustome2.this.getTableView().getItems().get(ButtonCustome2.this.getIndex());
+                    objTipoPlatillo.delTipo();
 
                     // Actualizamos el TableView
-                    ButtonCustome.this.getTableView().setItems(objPlatillo.getAllPlatillo());
-                    ButtonCustome.this.getTableView().refresh();
+                    ButtonCustome2.this.getTableView().setItems(objTipoPlatillo.getAllTipo());
+                    ButtonCustome2.this.getTableView().refresh();
                 }
             });
         }
