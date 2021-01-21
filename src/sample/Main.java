@@ -14,6 +14,7 @@ import sample.components.Hilo;
 import sample.models.Conexion;
 import sample.ui.Memorama;
 import sample.ui.Dashboard;
+import sample.ui.Pista;
 import sample.ui.Taquimecanografo;
 
 public class Main extends Application implements EventHandler {
@@ -39,11 +40,12 @@ public class Main extends Application implements EventHandler {
         primaryStage.show();
 
         Conexion.crearConexion();
-        new Hilo("Sonic").start();
+        /*new Hilo("Sonic").start();
         new Hilo("Flash").start();
         new Hilo("Super Man").start();
         new Hilo("Meteoro").start();
-        new Hilo("QuickSilver").start();
+        new Hilo("QuickSilver").start();*/
+        new Pista();
     }
 
     private void CrearUI() {
