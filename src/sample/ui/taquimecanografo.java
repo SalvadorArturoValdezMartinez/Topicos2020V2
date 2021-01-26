@@ -1,4 +1,3 @@
-
 package sample.ui;
 
 import sample.events.EventoTeclado;
@@ -26,7 +25,7 @@ import java.util.TimerTask;
 import java.util.Timer;
 
 
-public class Taquimecanografo extends Stage{
+public class taquimecanografo extends Stage{
 
     private Scene escena;
     private VBox vbox;
@@ -50,20 +49,20 @@ public class Taquimecanografo extends Stage{
     private Button[] arTShift;
     private Button[] arTEspacio;
 
-    public Taquimecanografo(){
+    public taquimecanografo(){
         CrearGui();
         this.setTitle("Taquimecanografo");
         this.setScene(escena);
         this.setMaximized(true);
-        //escena.getStylesheets().add(getClass().getResource("../CSS/taqui.css").toExternalForm());
+
         this.show();
 
     }
 
     private void CrearGui() {
 
-        //ImageView img = new ImageView("src/Images/finaliza.png");
-        ImageView img = new ImageView("assets/finaliza.jpg");
+        //ImageView img = new ImageView("assets/finaliza.png");
+        ImageView img = new ImageView("sample/assets/finaliza.png");
         img.setFitWidth(50);
         img.setFitHeight(50);
 
@@ -75,7 +74,7 @@ public class Taquimecanografo extends Stage{
 
         btnAbrir = new Button();
         btnAbrir.setOnContextMenuRequested(event -> BuscarArchivo());
-        btnAbrir.setGraphic(new ImageView("assets/open.png"));
+        btnAbrir.setGraphic(new ImageView("sample/assets/open.png"));
 
 
         lblEr = new Label(" Errores: ");
@@ -217,8 +216,8 @@ public class Taquimecanografo extends Stage{
 
     public void btnFinalizar(){
 
-        iconF = new ImageIcon("assets/Doh.jpg");
-        iconT = new ImageIcon("assets/termine.gif");
+        iconF = new ImageIcon("sample/assets/Doh.jpg");
+        iconT = new ImageIcon("sample/assets/termineH.gif");
         ((ImageIcon) iconT).getImage().getScaledInstance(28, 28, Image.SCALE_DEFAULT);
         int error=0;
 
@@ -260,12 +259,12 @@ public class Taquimecanografo extends Stage{
 
     private void CrearTeclado() {//metodo generico para todas las filas
 
-        String [] tecla = {"Esc","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12","supr"};//etiqueta para todos los nombres
-        String [] tecla2 = {"1","2","3","4","5","6","7","8","9","0","'","¿", "←"};//etiqueta para todos los nombres
-        String [] tecla3 = {"⇄","Q","W","E","R","T","Y","U","I","O","P","´","+", "↵"};//etiqueta para todos los nombres
-        String [] tecla4 = {"Mayús","A","S","D","F","G","H","J","K","L","Ñ","{","}","↵"};//etiqueta para todos los nombres
-        String [] tecla5 = {"<","Z","X","C","V","B","N","M",",",".","-", "↑","↑"};//etiqueta para todos los nombres
-        String [] tecla6 = {"ctrl", "fn", "windows", "alt", "  espacio  ", "AltGr", "≡", "Ctrl", "←", "↓", "→"};//etiqueta para todos los nombres
+        String [] tecla = {"Esc","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12","<-"};//etiqueta para todos los nombres
+        String [] tecla2 = {"1","2","3","4","5","6","7","8","9","0","'","¿"};//etiqueta para todos los nombres
+        String [] tecla3 = {"Q","W","E","R","T","Y","U","I","O","P","´","+"};//etiqueta para todos los nombres
+        String [] tecla4 = {"Mayús","A","S","D","F","G","H","J","K","L","Ñ","{","}","Enter"};//etiqueta para todos los nombres
+        String [] tecla5 = {"<","Z","X","C","V","B","N","M",",",".","-"};//etiqueta para todos los nombres
+        String [] tecla6 = {" "};//etiqueta para todos los nombres
 
         filas = new HBox[6];
         vTeclado = new VBox();
@@ -282,6 +281,7 @@ public class Taquimecanografo extends Stage{
         CrearFila(tecla5,arTShift,filas[4]);
         CrearFila(tecla6,arTEspacio,filas[5]);
         /////////////////////////
+
 
     }
 
@@ -301,3 +301,4 @@ public class Taquimecanografo extends Stage{
     }
 
 }
+

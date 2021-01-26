@@ -15,7 +15,7 @@ import sample.models.Conexion;
 import sample.ui.Memorama;
 import sample.ui.Dashboard;
 import sample.ui.Pista;
-import sample.ui.Taquimecanografo;
+import sample.ui.taquimecanografo;
 
 public class Main extends Application implements EventHandler {
 
@@ -102,7 +102,7 @@ public class Main extends Application implements EventHandler {
     private void opcionMenu(int opc) {
         switch(opc){
             case 1: new Memorama();         break;
-            case 2: new Taquimecanografo(); break;
+            case 2: new taquimecanografo(); break;
             case 3: new Dashboard();      break;
         }
     }

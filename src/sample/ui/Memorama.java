@@ -168,7 +168,7 @@ public class Memorama extends Stage implements EventHandler {
                 try {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Memorama Completado!!!");
-                    alert.setHeaderText("Haz acertado a todos los pares!");
+                    alert.setHeaderText("¡FELICIDADES!Eres bastante rapido, sigue asi ");
                     alert.setContentText("Tu puntuacion: " + aciertos + " de " + ganar);
                     alert.showAndWait();
                     Thread.sleep(2000);//hilo para pausar el programa
@@ -206,7 +206,7 @@ public class Memorama extends Stage implements EventHandler {
                 try {
                     Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                     alert2.setTitle("Perdiste!");
-                    alert2.setHeaderText("Ups no fuiste tan acertado!");
+                    alert2.setHeaderText("¡Game Over! Suerte Para la Proxima");
                     alert2.setContentText("Tu puntuacion: " + aciertos + " de " + ganar);
                     alert2.showAndWait();
                     Thread.sleep(2000);

@@ -4,14 +4,14 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
-import sample.ui.Taquimecanografo;
+import sample.ui.taquimecanografo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EventoTeclado implements EventHandler<KeyEvent>{
 
-    private Taquimecanografo tecla;
+    private taquimecanografo tecla;
     private int opc;
     private Scene escena;
 
@@ -19,7 +19,7 @@ public class EventoTeclado implements EventHandler<KeyEvent>{
         this.escena = escena;
     }
 
-    public EventoTeclado(Taquimecanografo tecla, int opc){
+    public EventoTeclado(taquimecanografo tecla, int opc){
 
         this.tecla = tecla;
         this.opc = opc;
